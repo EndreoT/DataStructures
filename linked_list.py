@@ -58,10 +58,12 @@ class DoublyLinkedList(object):
         >>> ll.head()
         node
         """
-        self._head = head
         self._node_set = set()
         if head:
+            self._head = DoublyLinkedList.make_node(head)
             self._node_set.add(self._head)
+        else:
+            self._head = head
 
     @staticmethod
     def make_node(data) -> Node:
