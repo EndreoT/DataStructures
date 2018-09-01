@@ -2,7 +2,7 @@ from typing import Any, Union
 
 
 class Node(object):
-    """A node object to be used in a linked list."""
+    """A doubly lined node to be used in a linked list."""
 
     def __init__(self, value: Any, next_node: "Node"=None, previous_node: "Node"=None):
         """
