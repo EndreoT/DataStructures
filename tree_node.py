@@ -133,7 +133,7 @@ class TreeNode:
         if self.is_leaf():
             self.get_parent().set_right_child(None)
         else:
-            # node to be removed has right child only
+            # Node to be removed has right child only.
             child = self.get_right_child()
             child.set_parent(self.get_parent())
             self.get_parent().set_left_child(child)
