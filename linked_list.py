@@ -213,11 +213,11 @@ class DoublyLinkedList(object):
         self.get_node_set().remove(node)
         return node
 
-    def reverse_recursive(self):
+    def reverse_recursive(self) -> None:
         if self.head() is not None:
-            self.reverse_helper(self.head(), None)
+            self._reverse_helper(self.head(), None)
 
-    def reverse_helper(self, current, previous):
+    def _reverse_helper(self, current, previous) -> None:
         if current.get_next() is None:
             self.set_head(current)
             current.set_next(previous)
@@ -226,7 +226,7 @@ class DoublyLinkedList(object):
             next_item = current.get_next()
             current.set_next(previous)
             current.set_previous(next_item)
-            self.reverse_helper(next_item, current)
+            self._reverse_helper(next_item, current)
 
     def reverse(self) -> None:
         """Reverses the next and previous values for each node. The new head becomes the old tail."""
@@ -240,7 +240,7 @@ class DoublyLinkedList(object):
             current = next_node
         self.set_head(previous)
 
-    def is_empty(self):
+    def is_empty(self) -> bool:
         return self.head() is None
 
     def get_length(self) -> int:
