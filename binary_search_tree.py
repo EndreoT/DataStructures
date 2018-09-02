@@ -63,7 +63,7 @@ class BinarySearchTree(BinaryTree):
     def find_min(self) -> TreeNode:
         return self.get_root().get_min()
 
-    def delete(self, key):
+    def delete(self, key) -> None:
         if self.get_size() == 1 and self.get_root().get_key() == key:
             # Only root exists and has the key
             removed = self.get_root()
@@ -84,7 +84,6 @@ class BinarySearchTree(BinaryTree):
             else:
                 node_to_remove.get_parent().set_right_child(None)
             node_to_remove.clear_connections()
-            return node_to_remove
         elif node_to_remove.has_only_one_child():
             if node_to_remove.get_left_child():
                 self._remove_if_only_one_child(node_to_remove, node_to_remove.get_left_child)
@@ -112,7 +111,7 @@ class BinarySearchTree(BinaryTree):
             prev_root.clear_connections()
 
     @staticmethod
-    def has_bst_property(node):
+    def has_bst_property(node) -> None:
         if node:
             if node.get_left_child() and node.get_left_child().get_key() > node.get_key():
                 raise ValueError
