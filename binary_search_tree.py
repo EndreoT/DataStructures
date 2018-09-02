@@ -77,7 +77,7 @@ class BinarySearchTree(BinaryTree):
         else:
             raise KeyError
 
-    def _remove(self, node_to_remove: TreeNode):
+    def _remove(self, node_to_remove: TreeNode) -> None:
         if node_to_remove.is_leaf():
             if node_to_remove.is_left_child():
                 node_to_remove.get_parent().set_left_child(None)
@@ -95,7 +95,7 @@ class BinarySearchTree(BinaryTree):
             node_to_remove.set_value(successor.get_value())
             successor.remove_self()
 
-    def _remove_if_only_one_child(self, node_to_remove, child_of_node_to_remove):
+    def _remove_if_only_one_child(self, node_to_remove, child_of_node_to_remove) -> None:
         parent = node_to_remove.get_parent()
         if node_to_remove.is_left_child():
             parent.set_left_child(child_of_node_to_remove())
